@@ -15,9 +15,9 @@ A Quasar Framework app
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Start the app 
 ```bash
-quasar dev
+quasar d
 ```
 
 ### Lint the files
