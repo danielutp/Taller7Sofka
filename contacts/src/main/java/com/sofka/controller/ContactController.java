@@ -53,13 +53,13 @@ public class ContactController {
     public ResponseEntity<Response> create(@RequestBody Contact contact) {
         response.data = contact;
         try {
-            log.info("Usuario a crear: {}", contact);
+            log.info("Contacto a crear: {}", contact);
             contactService.save(contact);
             return new ResponseEntity<Response>(response, HttpStatus.CREATED);
         } catch (Exception exc) {
             response.status = exc.getCause().toString();
             response.error = true;
-            if (Pattern.compile("(usuario.tipo_documento_and_documento_UNIQUE)").matcher(exc.getMessage()).find()) {
+            if (Pattern.compile("(contact.name_and_phone_UNIQUE)").matcher(exc.getMessage()).find()) {
                 response.message = "documento duplicado";
                 return new ResponseEntity<Response>(response, HttpStatus.CONFLICT);
             } else {
