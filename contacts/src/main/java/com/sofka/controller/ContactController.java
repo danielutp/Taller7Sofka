@@ -60,7 +60,7 @@ public class ContactController {
             response.status = exc.getCause().toString();
             response.error = true;
             if (Pattern.compile("(contact.name_and_phone_UNIQUE)").matcher(exc.getMessage()).find()) {
-                response.message = "documento duplicado";
+                response.message = "contacto duplicado";
                 return new ResponseEntity<Response>(response, HttpStatus.CONFLICT);
             } else {
                 response.message = exc.getMessage();
